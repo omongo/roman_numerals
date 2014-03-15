@@ -20,13 +20,9 @@ class RomanNumerals:
 
     def _convert(self, i, x):
         MAP = RomanNumerals.MAP
-        value = ''
-        if i % 5 == 4:
-            value += MAP[x][0]
-            i += 1
+        value, i = (MAP[x][0], i + 1) if i % 5 == 4 else ('', i)
         i_fd_5 = i // 5
-        if i_fd_5:
-            value += MAP[x][i_fd_5]
+        value += MAP[x][i_fd_5] if i_fd_5 else ''
         i %= 5
         value += MAP[x][0] * i
         return value
