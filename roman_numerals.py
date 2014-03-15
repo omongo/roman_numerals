@@ -25,10 +25,8 @@ class RomanNumerals:
             value += MAP[x][0]
             i += 1
         i_fd_5 = i // 5
-        if i_fd_5 == 1:
-            value += MAP[x][1]
-        elif i_fd_5 == 2:
-            value += MAP[x][2]
+        if i_fd_5:
+            value += MAP[x][i_fd_5]
         i %= 5
         value += MAP[x][0] * i
         return value
